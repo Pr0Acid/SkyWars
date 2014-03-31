@@ -76,7 +76,7 @@ public class ScoreCommand implements CommandExecutor {
                             .format("error.no-valid-player"));
                     return true;
                 }
-                GamePlayer gamePlayer = new PlayerController.get().get(player);
+                GamePlayer gamePlayer = new GamePlayer(player.getName());
                 try {
                     int amount = Integer.parseInt(args[3]);
                     gamePlayer.setScore(amount);
