@@ -11,21 +11,6 @@
     <description>SkyWars plugin</description>
     <packaging>jar</packaging>
 
-    <repositories>
-        <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public</url>
-        </repository>
-        <repository>
-            <id>sk89q-repo</id>
-            <url>http://maven.sk89q.com/repo/</url>
-        </repository>
-        <repository>
-            <id>multiverse-repo</id>
-            <url>http://repo.onarandombox.com/content/groups/public</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
@@ -37,19 +22,22 @@
             <groupId>com.sk89q</groupId>
             <artifactId>worldedit</artifactId>
             <version>5.5.3</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/WorldEdit.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>worldguard</artifactId>
             <version>5.7.3</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/WorldGuard.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>commandbook</artifactId>
             <version>2.3.1-SNAPSHOT</version>
-            <type>jar</type>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/CommandBook.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>net.milkbowl</groupId>
@@ -62,7 +50,8 @@
             <groupId>com.onarandombox.multiversecore</groupId>
             <artifactId>Multiverse-Core</artifactId>
             <version>0.3-SNAPSHOT</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/Multiverse-Core-2.5.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.earth2me</groupId>
