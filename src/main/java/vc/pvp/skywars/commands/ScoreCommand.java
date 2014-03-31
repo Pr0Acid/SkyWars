@@ -112,9 +112,9 @@ public class ScoreCommand implements CommandExecutor {
                 GamePlayer gamePlayer = new GamePlayer(player.getName());
                 try {
                     int amount = Integer.parseInt(args[3]);
-                    gamePlayer.setScore(gamePlayer.getScore() + "100");
+                    gamePlayer.setScore(gamePlayer.getScore() + amount);
  -                    sender.sendMessage(new Messaging.MessageFormatter()
- -                            .setVariable("value", String.valueOf("100"))
+ -                            .setVariable("value", String.valueOf(amount))
  -                            .setVariable("player", gamePlayer.getName())
  -                            .format("success.score-give"));
                     gamePlayer.save();
