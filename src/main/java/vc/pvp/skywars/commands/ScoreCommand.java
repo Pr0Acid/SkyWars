@@ -113,10 +113,10 @@ public class ScoreCommand implements CommandExecutor {
                 try {
                     int amount = Integer.parseInt(args[3]);
                     gamePlayer.setScore(gamePlayer.getScore() + amount);
- -                    sender.sendMessage(new Messaging.MessageFormatter()
- -                            .setVariable("value", String.valueOf(amount))
- -                            .setVariable("player", gamePlayer.getName())
- -                            .format("success.score-give"));
+                    sender.sendMessage(new Messaging.MessageFormatter()
+                            .setVariable("value", String.valueOf(amount))
+                            .setVariable("player", gamePlayer.getName())
+                            .format("success.score-give"));
                     gamePlayer.save();
                     return true;
                 } catch (NumberFormatException e) {
