@@ -34,25 +34,25 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>LATEST</version>
+            <version>1.7.2-R0.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>worldedit</artifactId>
-            <version>LATEST</version>
+            <version>5.5.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>worldguard</artifactId>
-            <version>LATEST</version>
+            <version>5.7.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.sk89q</groupId>
             <artifactId>commandbook</artifactId>
-            <version>LATEST</version>
+            <version>2.3.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -64,13 +64,13 @@
         <dependency>
             <groupId>com.onarandombox.multiversecore</groupId>
             <artifactId>Multiverse-Core</artifactId>
-            <version>LATEST</version>
+            <version>0.3-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.earth2me</groupId>
             <artifactId>essentials</artifactId>
-            <version>LATEST</version>
+            <version>2.13-SNAPSHOT</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/Essentials.jar</systemPath>
         </dependency>
