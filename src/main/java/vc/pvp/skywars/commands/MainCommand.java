@@ -59,8 +59,7 @@ public class MainCommand implements CommandExecutor {
         ///---------------------------------------------------------------
     }
 
-
-    private boolean hasPermission(Player bukkitPlayer, CommandExecutor cmd) {
+    private boolean hasPermission(CommandSender bukkitPlayer, CommandExecutor cmd) {
         CommandPermissions permissions = cmd.getClass().getAnnotation(CommandPermissions.class);
         if (permissions == null) {
             return true;
@@ -75,7 +74,7 @@ public class MainCommand implements CommandExecutor {
         return false;
     }
 
-    private void printHelp(Player bukkitPlayer, String label) {
+    private void printHelp(CommandSender bukkitPlayer, String label) {
         bukkitPlayer.sendMessage(new Messaging.MessageFormatter().withPrefix().format("cmd.available-commands"));
 
         for (Map.Entry<String, CommandExecutor> commandEntry : subCommandMap.entrySet()) {
