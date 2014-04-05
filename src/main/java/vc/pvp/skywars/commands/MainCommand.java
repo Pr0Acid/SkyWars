@@ -27,31 +27,38 @@ public class MainCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(new Messaging.MessageFormatter().format("error.player-only"));
-            return true;
-        }
 
-        Player player = (Player) sender;
         if (args.length == 0) {
-            printHelp(player, label);
+            printHelp(sender, label);
             return true;
         }
 
         String subCommandName = args[0].toLowerCase();
         if (!subCommandMap.containsKey(subCommandName)) {
-            printHelp(player, label);
+            printHelp(sender, label);
             return true;
         }
 
+        ///-------------------------------------------------------------
+        if(sender instanceof Player)
+        {  Player player = (Player)sender;
         CommandExecutor subCommand = subCommandMap.get(subCommandName);
         if (!hasPermission(player, subCommand)) {
             player.sendMessage(new Messaging.MessageFormatter().format("error.insufficient-permissions"));
             return true;
+          }
+          return subCommand.onCommand(sender, command, label, args);
         }
-
-        return subCommand.onCommand(sender, command, label, args);
+        else
+        { if(args[0].equals("reload") || args[0].equals("score"))
+          { CommandExecutor subCommand = subCommandMap.get(subCommandName);
+            return subCommand.onCommand(sender, command, label, args);
+          }
+        }
+        return true;
+        ///---------------------------------------------------------------
     }
+
 
     private boolean hasPermission(Player bukkitPlayer, CommandExecutor cmd) {
         CommandPermissions permissions = cmd.getClass().getAnnotation(CommandPermissions.class);
