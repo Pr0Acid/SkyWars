@@ -166,29 +166,29 @@ public class PlayerListener implements Listener {
         }
     }
     
-    @EventHandler
-    public void onPlayerMove(PlayerMoveEvent e) {
-        Location from = e.getFrom();
-        Location to = e.getTo();
-        if (from.getBlockX() == to.getBlockX() && from.getBlockY() == to.getBlockY() && from.getBlockZ() == to.getBlockZ()) {
-            return;
-        }
-        Player p = e.getPlayer();
-        GamePlayer gamePlayer = PlayerController.get().get(p);
-        if (!gamePlayer.isPlaying()) {
-            return;
-        }
-        Vector minVec = gamePlayer.getGame().getMinLoc();
-        Vector maxVec = gamePlayer.getGame().getMaxLoc();
-        if (p.getLocation().getBlockY() < 0) {
-            p.setFallDistance(0F);
-            gamePlayer.getGame().onPlayerDeath(gamePlayer, null);
-        } else if (!to.toVector().isInAABB(minVec, maxVec)) {
-            p.sendMessage(new Messaging.MessageFormatter().withPrefix()
-                    .format("You cannot leave the arena."));
-            p.teleport(from);
-        }
-    }
+//    @EventHandler
+//    public void onPlayerMove(PlayerMoveEvent e) {
+//        Location from = e.getFrom();
+//        Location to = e.getTo();
+//        if (from.getBlockX() == to.getBlockX() && from.getBlockY() == to.getBlockY() && from.getBlockZ() == to.getBlockZ()) {
+//            return;
+//        }
+//        Player p = e.getPlayer();
+//        GamePlayer gamePlayer = PlayerController.get().get(p);
+//        if (!gamePlayer.isPlaying()) {
+//            return;
+//        }
+//        Vector minVec = gamePlayer.getGame().getMinLoc();
+//        Vector maxVec = gamePlayer.getGame().getMaxLoc();
+//        if (p.getLocation().getBlockY() < 0) {
+//            p.setFallDistance(0F);
+//            gamePlayer.getGame().onPlayerDeath(gamePlayer, null);
+//        } else if (!to.toVector().isInAABB(minVec, maxVec)) {
+//            p.sendMessage(new Messaging.MessageFormatter().withPrefix()
+//                    .format("You cannot leave the arena."));
+//            p.teleport(from);
+//        }
+//    }
     
     @EventHandler
     public void onPlayerTeleport(PlayerTeleportEvent e) {
